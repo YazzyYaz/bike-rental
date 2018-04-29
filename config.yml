@@ -22,3 +22,7 @@ dataset:
         - "temp"
         - "hum"
         - "windspeed"
+    target_fields:
+        - "cnt"
+        - "casual"
+        - "registered"
