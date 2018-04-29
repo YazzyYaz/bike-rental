@@ -25,7 +25,7 @@ class TestMethods(unittest.TestCase):
 
     def test_activation(self):
         network = neuralnet.NeuralNetwork(3, 2, 1, 0.5)
-        self.assertTrue(np.all(network.activation(0.5) == 1/(1+np.exp(-0.5))))
+        self.assertTrue(np.all(network.activation_function(0.5) == 1/(1+np.exp(-0.5))))
 
     def test_train(self):
         network = neuralnet.NeuralNetwork(3, 2, 1, 0.5)

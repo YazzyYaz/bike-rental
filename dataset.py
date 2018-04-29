@@ -4,8 +4,8 @@ import pprint
 
 class Dataset(object):
     """Dataset Class to instantiate test and training datasets for bike"""
-    def __init__(self, data_url):
-        self.data_url = data_url
+    def __init__(self, data_path):
+        self.data_path = data_path
         self.dummy_variables = dataset.get('dummy_variables')
         self.fields_to_drop = dataset.get('fields_to_drop')
         self.quant_features = dataset.get('quant_features')
@@ -13,7 +13,7 @@ class Dataset(object):
         self.__build_data_set()
 
     def __build_data_set(self):
-        self.rides = pd.read_csv(self.data_url)
+        self.rides = pd.read_csv(self.data_path)
         ## For categorical columns like months and days, we need to generate binary dummy variables
         for field in self.dummy_variables:
             dummies = pd.get_dummies(self.rides[field], prefix=field, drop_first=False)
