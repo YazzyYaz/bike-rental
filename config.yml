@@ -1,0 +1,24 @@
+dataset:
+    dummy_variables:
+        - "season"
+        - "weathersit"
+        - "mnth"
+        - "hr"
+        - "weekday"
+    fields_to_drop:
+        - "instant"
+        - "dteday"
+        - "season"
+        - "weathersit"
+        - "weekday"
+        - "atemp"
+        - "mnth"
+        - "workingday"
+        - "hr"
+    quant_features:
+        - "casual"
+        - "registered"
+        - "cnt"
+        - "temp"
+        - "hum"
+        - "windspeed"
