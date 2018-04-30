@@ -1,3 +1,5 @@
+import numpy as np
+
 class Node(object):
     def __init__(self, inbound_nodes=[]):
         # Nodes from which this Node self will receive values
@@ -32,16 +34,14 @@ class Input(Node):
             self.value = value
 
 class Linear(Node):
-    def __init__(self, inputs, weights, bias):
-        Node.__init__(self, [inputs, weights, bias])
+    def __init__(self, X, W, b):
+        Node.__init__(self, [X, W, b])
 
     def forward(self):
-        input_value = self.inbound_nodes[0].value
-        weight_value = self.inbound_nodes[1].value
-        bias_value = self.inbound_nodes[2].value
-        self.value = bias_value
-        for x, w in zip(input_value, weight_value):
-            self.value += x * w
+        X = self.inbound_nodes[0].value
+        W = self.inbound_nodes[1].value
+        b = self.inbound_nodes[2].value
+        self.value = np.dot(X, W) + b
 
 class Add(Node):
     def __init__(self, *inputs):
