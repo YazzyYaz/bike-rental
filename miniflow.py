@@ -31,6 +31,18 @@ class Input(Node):
         if value is not None:
             self.value = value
 
+class Linear(Node):
+    def __init__(self, inputs, weights, bias):
+        Node.__init__(self, [inputs, weights, bias])
+
+    def forward(self):
+        input_value = self.inbound_nodes[0].value
+        weight_value = self.inbound_nodes[1].value
+        bias_value = self.inbound_nodes[2].value
+        self.value = bias_value
+        for x, w in zip(input_value, weight_value):
+            self.value += x * w
+
 class Add(Node):
     def __init__(self, *inputs):
         Node.__init__(self, inputs)

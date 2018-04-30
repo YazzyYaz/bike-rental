@@ -79,9 +79,13 @@ class Session(object):
         logger.info("Prediction Plot Generated")
 
     def __initiate_miniflow_neural_net(self):
-        x, y = Input(), Input()
-        f = Add(x, y)
-        feed_dict = {x: 10, y: 5}
+        inputs, weights, bias = Input(), Input(), Input()
+        f = Linear(inputs, weights, bias)
+        feed_dict = {
+            inputs: [6, 14, 3],
+            weights:[0.5, 0.25, 1.4],
+            bias: 2
+        }
         sorted_nodes = topological_sort(feed_dict)
         output = forward_pass(f, sorted_nodes)
-        logger.info("{} + {} = {} (according to miniflow)".format(feed_dict[x], feed_dict[y], output))
+        logger.info(output)
