@@ -3,6 +3,7 @@ import neuralnet
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
+from miniflow import *
 from config import hyperparameters, logger, dataset_link
 
 class Session(object):
@@ -76,3 +77,6 @@ class Session(object):
         _ = ax.set_xticklabels(dates[12::24], rotation=45)
         plt.savefig("assets/prediction.png")
         logger.info("Prediction Plot Generated")
+
+    def __initiate_miniflow_neural_net(self):
+        x, y = Input(), Input()
