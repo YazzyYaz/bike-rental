@@ -3,6 +3,7 @@ import neuralnet
 import dataset
 import pandas as pd
 import numpy as np
+from config import dataset_link
 
 inputs = np.array([[0.5, -0.2, 0.1]])
 targets = np.array([[0.4]])
@@ -18,7 +19,7 @@ data = dataset.Dataset("data/hour.csv")
 class TestMethods(unittest.TestCase):
     """Unit Tests for Data Loading"""
     def test_data_path(self):
-        self.assertTrue(data.data_path == "data/hour.csv")
+        self.assertTrue(data.data_path == dataset_link)
 
     def test_data_load(self):
         self.assertTrue(isinstance(data.rides, pd.DataFrame))

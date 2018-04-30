@@ -45,7 +45,7 @@ class Dataset(object):
     def return_val_features(self):
         return self.val_features, self.val_targets
 
-    def return_scaled_feature(self):
+    def return_scaled_features(self):
         return self.scaled_features
 
     def return_rides(self):
